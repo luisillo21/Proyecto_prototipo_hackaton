@@ -8,11 +8,11 @@ class Usuario(models.Model):
     nombre = models.CharField('Nombre',max_length=50, blank=False, null=False)
     apellido = models.CharField(max_length= 200,blank=False, null=False)
     id_pais = models.ForeignKey(Pais)
-    id_region = models.ForeignKey(Region)
+    id_region = models.ForeignKey(Region,on_delete=models.CASCADE)
     edad = models.CharField(max_length= 200,blank=False, null=False,)
     foto = models.CharField(max_length= 2,blank=False, null=False,)
     correo = models.CharField(max_length= 200,blank=False, null=False,)
-    id_provincia = models.ForeignKey(Provincia)
+    id_provincia = models.ForeignKey(Provincia,on_delete=models.CASCADE)
     sudonimo = models.CharField(max_length= 200,blank=False, null=False,)
 
 
