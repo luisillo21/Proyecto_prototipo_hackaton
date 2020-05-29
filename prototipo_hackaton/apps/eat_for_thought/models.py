@@ -21,6 +21,6 @@ class Pais(models.Model):
     nombre_pais = models.CharField('Nombre de pais',max_length=50, blank=False, null=False)
     id_region = models.ForeignKey(Region)
     def __str__(self):
-        return self.nombre
+        return self.nombre_pais
 
 
