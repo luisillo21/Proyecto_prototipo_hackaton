@@ -10,7 +10,10 @@ from .forms import *
 
 
 def base(request):
-    return render(request, "base.html")
+    if 'usuario' in request.session:
+        return render(request, "base.html")
+    else:
+        return redirect("index")
 
 
 def index(request):
@@ -39,10 +42,9 @@ def index(request):
 
 
 
-
-
-
-
+def cerrarsesion(request):
+    del request.session['usuario']
+    return HttpResponseRedirect('../')
 
 
 class Usuarios(CreateView):
