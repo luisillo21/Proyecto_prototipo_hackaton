@@ -5,6 +5,7 @@ from apps.usuario.views import *
 from apps.usuario import views
 
 urlpatterns = [
+    path('base', views.base, name='vase'),
     path('', views.index, name='index'),
     path('crear_usuario/', Usuarios.as_view(), name='crear_usuario'),
     path('formulario/', Formulario.as_view(), name='formulario'),

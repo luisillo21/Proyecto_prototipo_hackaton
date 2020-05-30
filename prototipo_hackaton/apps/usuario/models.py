@@ -1,5 +1,5 @@
 from django.db import models
-
+from apps.eat_for_thought.models import *
 # Create your models here.
 
 
@@ -16,5 +16,3 @@ class Usuario(models.Model):
 
     def __str__(self):
         return self.nombres
-
-
