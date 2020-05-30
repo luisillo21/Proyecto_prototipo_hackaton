@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps',
+    'rest_framework',
+    'crispy_forms',
+    'apps.usuario',
+    'apps.eat_for_thought',
 ]
 
 MIDDLEWARE = [
@@ -79,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'prototipo_hackaton',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'PASSWORD': 'sodaestereo',
         'HOST': 'localhost',
         'PORT': '5432',
     }
