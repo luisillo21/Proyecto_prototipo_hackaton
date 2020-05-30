@@ -35,19 +35,19 @@
                 <br>
 			</div>
 			<div class="card-body">
-				<form method="post">
+				<form method="post" action="{% url 'index' %}">
                     {% csrf_token %}
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" name="usu" class="form-control" placeholder="Usuario">
+						<input type="text" name="usu" id="usu" class="form-control" placeholder="Usuario">
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" name="pass" class="form-control" placeholder="Contraseña">
+						<input type="password" name="pass" id="pass" class="form-control" placeholder="Contraseña">
 					</div>
 					<div class="form-group">
                         <div class="row justify-content-center">

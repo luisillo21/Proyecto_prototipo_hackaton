@@ -14,7 +14,38 @@ def base(request):
 
 
 def index(request):
-    return render(request, "login.html")
+    #return render(request, "login.html")
+    contexto = {}
+    try:
+        if request.method == 'POST':
+            var_usuario = request.POST.get('usu')
+            var_contra = request.POST.get('pass')
+            #h = hashlib.new("sha1")
+            #var_contra = str.encode(var_contra)
+            #h.update(var_contra)
+            #print(h.hexdigest())
+            if Usuario.objects.filter(correo=var_usuario, clave=var_contra).exists():
+                usu = Usuario.objects.get(usuario=var_usuario, clave=var_contra)
+                request.session['usuario'] = usu.id_usuario
+                return redirect("vase")
+            else:
+                print("hola mundo")
+                contexto['error'] = "Usuario o contraseña incorrectos"
+                return render(request, 'login.html', contexto)
+    
+    except Exception as e:
+        print(e)
+        contexto['error'] = "Usuario o contraseña incorrectos"
+        return render(request, 'login.html', contexto)
+    return render(request, 'login.html', contexto)
+
+
+
+
+
+
+
+
 
 class Usuarios(CreateView):
     model = Usuario

@@ -6,7 +6,7 @@ from apps.eat_for_thought.models import *
 class Usuario(models.Model):
     nombres = models.CharField(max_length=100, blank=False, null=False)
     apellidos = models.CharField(max_length=100, blank=False, null=False)
-    correo = models.CharField(max_length=100, blank=False, null=False)
+    correo = models.EmailField(max_length=100, blank=False, null=False)
     clave = models.CharField(max_length=100, blank=False, null=False)
 
     class Meta:
