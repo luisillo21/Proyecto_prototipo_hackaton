@@ -64,24 +64,25 @@
                             <input type="password" placeholder="Confirmar contraseña" class="form-control" id="cnf-contra" name="cnf-contra">
                         </div>
                     </div>
-
-                    <div class="row justify-content-center">
-                        <div class="col-5"><button id="btn-guardar" name="btn-guardar" class="btn btn-block btn-outline-primary">Registrar</button></div>
-                        <div class="col-5"><a class="btn btn-block btn-outline-danger" href="{% url 'index' %}">Cancelar</a></div>
+                    <br>
+					<div class="form-group">
+                        <div class="row justify-content-center">
+                            <a type="submit" class="btn btn-success">Crear Cuenta</a>
+                        </div>
+					</div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center links">
+                        ¿Ya tienes una cuenta?<a href="{% url 'index' %}">Inicia Sesion</a>
+                        </div>
                     </div>
-
-
-
                 </form>
-
 
 			</div>
 		</div>
 	</div>
 </div>
     <!-- Scripts -->
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
             $('#mensaje').hide();
@@ -98,7 +99,7 @@
                 $('#formulario').submit();
             }
         });
-        
+
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
@@ -110,7 +111,7 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+	background-image:url(https://wallpapertag.com/wallpaper/full/c/a/a/157415-simplistic-wallpapers-1920x1080-lockscreen.jpg);
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
@@ -123,15 +124,15 @@ align-content: center;
 }
 
 .card{
-height: 370px;
+height: 450px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
+background-color:rgba(13,13,13,0.2);
 }
 
 .card-header h3{
-color: #FFC312;
+color: #5cb85c;
 }
 
 
