@@ -25,14 +25,12 @@ def index(request):
             #h.update(var_contra)
             #print(h.hexdigest())
             if Usuario.objects.filter(correo=var_usuario, clave=var_contra).exists():
-                usu = Usuario.objects.get(usuario=var_usuario, clave=var_contra)
-                request.session['usuario'] = usu.id_usuario
+                usu = Usuario.objects.get(correo=var_usuario, clave=var_contra)
+                request.session['usuario'] = usu.id
                 return redirect("vase")
             else:
-                print("hola mundo")
                 contexto['error'] = "Usuario o contraseña incorrectos"
                 return render(request, 'login.html', contexto)
-    
     except Exception as e:
         print(e)
         contexto['error'] = "Usuario o contraseña incorrectos"
