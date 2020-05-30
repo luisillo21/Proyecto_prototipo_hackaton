@@ -3,6 +3,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from apps.usuario.views import *
 from apps.usuario import views
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('base', views.base, name='vase'),
@@ -11,5 +12,7 @@ urlpatterns = [
     path('formulario/', Formulario.as_view(), name='formulario'),
     path('informacion/', Informacion.as_view(), name='informacion'),
     path('mapa/', Mapa.as_view(), name='mapa'),
+
+
 
 ]
