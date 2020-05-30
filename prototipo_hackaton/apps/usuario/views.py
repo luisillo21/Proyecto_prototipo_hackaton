@@ -8,6 +8,7 @@ from django.urls import reverse
 from .models import *
 from .forms import *
 
+
 def base(request):
     return render(request, "base.html")
 
@@ -19,13 +20,14 @@ class Usuarios(CreateView):
     model = Usuario
     form_class = UsuarioForm
     template_name = 'crear_cuenta.html'
-    success_url = ('login')
+    success_url = reverse_lazy('index')
+
 
 class Formulario(CreateView):
     model = Usuario
     form_class = UsuarioForm
     template_name = 'formulario.html'
-    success_url = ('formulario')
+    success_url = reverse_lazy('formulario')
 
 class Informacion(ListView):
     model = Usuario
