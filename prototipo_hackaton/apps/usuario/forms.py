@@ -8,7 +8,6 @@ class UsuarioForm(forms.ModelForm):
                   'apellidos',
                   'correo',
                   'clave',
-
                   ]
 
         labels = {
@@ -16,13 +15,12 @@ class UsuarioForm(forms.ModelForm):
             'apellidos': 'Apellidos',
             'correo': 'Email',
             'clave': 'Contraseña',
-
         }
         widgets = {
-            'nombres': forms.TextInput(attrs={"class": "form-control text-dark", "type": "text"}),
-            'apellidos': forms.TextInput(attrs={"class": "form-control text-dark", "type": "text"}),
-            'correo': forms.TextInput(attrs={"class": "form-control text-dark", "type": "email"}),
-            "clave": forms.TextInput(attrs={"class": "form-control", "type": "password"})
+            'nombres': forms.TextInput(attrs={"class": "form-control text-dark", "type": "text", "placeholder": "Ingrese su nombre"}),
+            'apellidos': forms.TextInput(attrs={"class": "form-control text-dark", "type": "text", "placeholder": "Ingrese su apellido"}),
+            'correo': forms.TextInput(attrs={"class": "form-control text-dark", "type": "email", "placeholder": "Ingrese su correo"}),
+            "clave": forms.TextInput(attrs={"class": "form-control", "type": "password", "placeholder": "Ingrese su contraseña"})
         }
 
 

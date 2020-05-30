@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load crispy_forms_tags %}
 <!Doctype html>
 <html class="no-js" lang="es">
 <head>
@@ -31,63 +32,43 @@
 <body >
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
-		<div class="card w-75" >
+		<div class="card w-75 h-85" >
 			<div class="card-header">
                 <div class="text-center">
                    <h3>Crear Cuenta</h3>
                 </div>
 			</div>
-            <br>
 			<div class="card-body">
-				<form>
-                    <br>
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend">
-
-                                </div>
-                                <input type="text" class="form-control" placeholder="Nombres">
-                            </div>
+                <form method="post" action="#">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-6">
+                            {{form.nombres|as_crispy_field}}
                         </div>
-                        <div class="col-md-6">
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend">
-
-                                </div>
-                                <input type="password" class="form-control" placeholder="Apellidos">
-                            </div>
+                        <div class="col-6">
+                            {{form.apellidos|as_crispy_field}}
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend">
-
-                                </div>
-                                <input type="text" class="form-control" placeholder="Usuario">
-                            </div>
+                        <div class="col-6">
+                            {{form.correo|as_crispy_field}}
                         </div>
-                        <div class="col-md-6">
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend">
-
-                                </div>
-                                <input type="password" class="form-control" placeholder="Contraseña">
-                            </div>
+                        <div class="col-6">
+                            {{form.clave|as_crispy_field}}
+                        </div>
+                        <div class="col-6 py-4">
+                            <input type="password" placeholder="Confirmar contraseña" class="form-control" id="cnf-contra" name="cnf-contra">
                         </div>
                     </div>
-                    <br>
-					<div class="form-group">
-                        <div class="row justify-content-center">
-                            <a type="submit" class="btn btn-warning">Crear</a>
-                        </div>
-					</div>
-                    <br>
-                    <div class="d-flex justify-content-center links">
-                        ¿Ya tienes una cuenta?<a href="{% url 'index' %}">Inicia Sesion</a>
+
+                    <div class="row justify-content-center">
+                        <div class="col-5"><button type="submit" class="btn btn-block btn-outline-primary">Registrar</button></div>
+                        <div class="col-5"><a class="btn btn-block btn-outline-danger" href="{% url 'index' %}">Cancelar</a></div>
                     </div>
-				</form>
+
+
+
+                </form>
+
+
 			</div>
 		</div>
 	</div>
