@@ -1,20 +1,20 @@
 from django.db import models
-from apps.eat_for_thought.models import *
-from django.db.models import AutoField
+
+# Create your models here.
 
 
 class Usuario(models.Model):
-    id_usuario = models.AutoField(primary_key=True)
-    nombre = models.CharField('Nombre',max_length=50, blank=False, null=False)
-    apellido = models.CharField(max_length= 200,blank=False, null=False)
-    id_pais = models.ForeignKey(Pais)
-    id_region = models.ForeignKey(Region,on_delete=models.CASCADE)
-    edad = models.CharField(max_length= 200,blank=False, null=False,)
-    foto = models.CharField(max_length= 2,blank=False, null=False,)
-    correo = models.CharField(max_length= 200,blank=False, null=False,)
-    id_provincia = models.ForeignKey(Provincia,on_delete=models.CASCADE)
-    sudonimo = models.CharField(max_length= 200,blank=False, null=False,)
+    nombres = models.CharField(max_length=100, blank=False, null=False)
+    apellidos = models.CharField(max_length=100, blank=False, null=False)
+    correo = models.CharField(max_length=100, blank=False, null=False)
+    clave = models.CharField(max_length=100, blank=False, null=False)
 
+    class Meta:
+        verbose_name = 'Usuario',
+        verbose_name_plural = 'Usuarios',
+        db_table = 'usuario'
 
     def __str__(self):
-        return self.nombre
+        return self.nombres
+
+

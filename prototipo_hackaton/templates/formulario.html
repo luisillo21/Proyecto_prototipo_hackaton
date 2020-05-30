@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block titulo %}Login{% endblock titulo %}</title>
+    <title>{% block titulo %}Bienvenido{% endblock titulo %}</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -12,7 +12,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
@@ -27,43 +27,47 @@
 <body >
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
-		<div class="card">
+		<div class="card w-75" >
 			<div class="card-header">
                 <div class="text-center">
-                   <h3>Login</h3>
+                   <h3>Bienvenido</h3>
                 </div>
-                <br>
 			</div>
 			<div class="card-body">
 				<form>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="Usuario">
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input type="password" class="form-control" placeholder="Contraseña">
-					</div>
-                    <br>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                </div>
+                                <input type="text" class="form-control" placeholder="Tipo De Cultivo">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                </div>
+                                <input type="password" class="form-control" placeholder="Sector Geografico">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body text-warning">
+                    <div class="text-center">
+                        <p class="card-text">• Tipo de Cultivo: Ingresar tipo de fruta, verduras entre otros</p>
+                        <p class="card-text">• Sector Geografico: Ingresar la localidad donde se esta produciendo</p>
+                    </div>
+                </div>
 					<div class="form-group">
                         <div class="row justify-content-center">
-                    <a type="submit" class="btn btn-warning">Ingresar</a>
+						<input type="submit" value=" Buscar" class="btn float-right login_btn">
                         </div>
 					</div>
 				</form>
 			</div>
-			<div class="card-footer">
-				<div class="d-flex justify-content-center links">
-					¿No tienes una cuenta?<a href="{% url 'crear_usuario' %}">Regístrate</a>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
@@ -72,7 +76,6 @@
     <script src="{% static 'js/main.js' %}"></script>
     <style>
 @import url('https://fonts.googleapis.com/css?family=Numans');
-
 html,body{
 background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
 background-size: cover;
@@ -110,7 +113,7 @@ background-color: white;
 }
 
     </style>
-    {% block extrajs %}
-    {% endblock extrajs %}
+{% block extrajs %}
+{% endblock extrajs %}
 </body>
 </html>
