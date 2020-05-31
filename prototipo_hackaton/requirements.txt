@@ -29,7 +29,7 @@ djangorestframework==3.11.0
 drf-url-filters==0.5.1
 et-xmlfile==1.0.1
 html5lib==1.0.1
-httplib2==0.17.2
+httplib2==0.18.0
 idna==2.8
 ipdb==0.12.2
 ipython==7.9.0
