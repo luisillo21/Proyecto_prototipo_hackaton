@@ -7,6 +7,8 @@ from django.urls import reverse_lazy
 from django.urls import reverse
 from .models import *
 from apps.usuario.forms import *
+from .forms import *
+
 
 def buscar_formulario(request):
     context = {}
@@ -15,3 +17,14 @@ def buscar_formulario(request):
     context['cosecha'] = Cosecha.objects.all().select_related('')
     
     return render(request,'eat_for_thought/form_search.html',context)
+
+
+class List_cosecha(ListView):
+    model = Cosecha
+    template_name = 'Mantenimiento/listar_cosecha.html'
+
+class CreateGeneral (CreateView):
+    model = Cosecha
+    template_name = 'Mantenimiento/agregar_cosecha.html'
+    form_class = Cosecha_1
+    success_url = reverse_lazy('vase')
