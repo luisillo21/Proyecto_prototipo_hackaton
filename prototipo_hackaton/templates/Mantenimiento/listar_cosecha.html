@@ -20,7 +20,7 @@
 
 
                     <tr class="text-center">
-                                              <th>Tiempo de cosecha</th>
+                                              <th>Tipo de cosecha</th>
                                               <th>Nombre de cosecha</th>
                                                 <th>descripcion</th>
                                                 <th>vitamina</th>
@@ -42,6 +42,7 @@
                                                 <td><strong>{{general.humedad_de_tierra}}</strong></td>
                                                 <td>
                                                     <a href="{% url 'update_cosecha' general.id_cosecha  %}" class="btn btn-primary" title="Editar"><i class="fas fa-info-circle"></i></a>
+                                                    <a href="{% url 'eliminar_cosecha' general.id_cosecha  %}" class="btn btn-primary" title="eliminar"><i class="fas fa-info-circle"></i></a>
                                               </td>
 
 

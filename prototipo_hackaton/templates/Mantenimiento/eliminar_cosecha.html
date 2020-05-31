@@ -1,6 +1,6 @@
-{% extends 'base/base.html' %}
+{% extends 'base.html' %}
 
-
+{% block contenido %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +10,7 @@
             {% block content %}
             <form method="POST">
                 {% csrf_token %}
-                <h3> ¿Desea eliminar el Ti´p  {{ general.nombre_cosecha}}? </h3>
+                <h3> ¿Desea eliminar este dato  {{ tipo_cosecha}}? </h3>
                 <button class="btn btn-danger" type="Submit">Eliminar</button>
                 <a class="btn btn-primary" href="{% url 'listar_cosecha' %}">Cancelar</a>
             </form>
@@ -23,3 +23,4 @@
 
 </body>
 </html>
+{% endblock contenido %}

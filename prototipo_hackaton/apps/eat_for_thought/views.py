@@ -27,14 +27,37 @@ class CreateGeneral (CreateView):
     model = Cosecha
     template_name = 'Mantenimiento/agregar_cosecha.html'
     form_class = Cosecha_1
-    success_url = reverse_lazy('vase')
+    success_url = reverse_lazy('listar_cosecha')
 
-def eliminar_cosecha(request,id_cosecha):
-    cosecha = Cosecha.objects.get( id_cosecha= id_cosecha)
-    if request.method == 'POST':
-        cosecha.delete()
-        return redirect ('listar_cosecha')
-    return render(request,'Mantenimiento/eliminar_cosecha.html',{'cosecha':cosecha})
+class Eliminar_cosecha (DeleteView):
+    model = Cosecha
+    template_name = 'Mantenimiento/eliminar_cosecha.html'
+    success_url = reverse_lazy('listar_cosecha')
+    context_object_name = 'F'
+
+
+class Updatecosecha (UpdateView):
+    model = Cosecha
+    template_name = 'Mantenimiento/editar_cosecha.html'
+    form_class = Cosecha_1
+    success_url = reverse_lazy('listar_cosecha')
+    context_object_name = 'F'
+
+class List_dealleCosecha(ListView):
+    model = DetalleCosecha
+    template_name = 'Mantenimiento/listar_detallecosechas.html'
+
+class Createdetalles (CreateView):
+    model = Cosecha
+    template_name = 'Mantenimiento/agregar_cosecha.html'
+    form_class = Cosecha_1
+    success_url = reverse_lazy('listar_cosecha')
+
+class Eliminar_cosecha (DeleteView):
+    model = Cosecha
+    template_name = 'Mantenimiento/eliminar_cosecha.html'
+    success_url = reverse_lazy('listar_cosecha')
+    context_object_name = 'F'
 
 
 class Updatecosecha (UpdateView):
