@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eliminar</title>
+
+            {% block content %}
+            <form method="POST">
+                {% csrf_token %}
+                <h3> ¿Desea eliminar el Ti´p  {{ general.nombre_cosecha}}? </h3>
+                <button class="btn btn-danger" type="Submit">Eliminar</button>
+                <a class="btn btn-primary" href="{% url 'listar_cosecha' %}">Cancelar</a>
+            </form>
+            {% endblock %}
+
+
+
+</head>
+<body>
+
+</body>
+</html>

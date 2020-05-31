@@ -14,4 +14,6 @@ urlpatterns = [
     path('form_search/',buscar_formulario, name='form_search'),
     path('crear_cosecha/', CreateGeneral.as_view(), name='crear_cosecha'),
     path('listar_cosecha/', List_cosecha.as_view(), name='listar_cosecha'),
+    path('update_cosecha/<int:pk>', Updatecosecha.as_view(), name='update_cosecha')
+
 ]
