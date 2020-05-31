@@ -28,14 +28,14 @@ class CreateGeneral (CreateView):
     template_name = 'Mantenimiento/agregar_cosecha.html'
     form_class = Cosecha_1
     success_url = reverse_lazy('vase')
-#no terminado
+
 def eliminar_cosecha(request,id_cosecha):
     cosecha = Cosecha.objects.get( id_cosecha= id_cosecha)
     if request.method == 'POST':
         cosecha.delete()
         return redirect ('listar_cosecha')
-    return render(request,'Mantenimiento/eliminar_materia.html',{'cosecha':cosecha})
-#no terminado
+    return render(request,'Mantenimiento/eliminar_cosecha.html',{'cosecha':cosecha})
+
 
 class Updatecosecha (UpdateView):
     model = Cosecha
