@@ -11,7 +11,7 @@ class Region(models.Model):
     id_region = models.AutoField(primary_key=True)
     nombre_region= models.CharField('ingrese la region',max_length=50, blank=False, null=False)
     temperatura = models.CharField(max_length=20, blank=False, null=False)
-    id_provinvia = models.ForeignKey(Provincia, on_delete=models.CASCADE)
+    id_provinvia = models.ManyToManyField(Provincia)
     plantas =  models.CharField(max_length=20, blank=False, null=False)
 
 
@@ -19,7 +19,7 @@ class Region(models.Model):
 class Pais(models.Model):
     id_pais = models.AutoField(primary_key=True)
     nombre_pais = models.CharField('Nombre de pais', max_length=50, blank=False, null=False)
-    id_region = models.ForeignKey(Region, on_delete=models.CASCADE,related_name='region_pais')
+    id_region = models.ManyToManyField(Region,related_name='region_pais')
     def __str__(self):
         return self.nombre_pais
 
@@ -38,16 +38,17 @@ class Cosecha(models.Model):
         verbose_name = 'Cosecha',
         verbose_name_plural = 'Cosechas',
         db_table = 'Cosecha'
+
     def __str__(self):
         return self.nombre_cosecha
 
     def detalle_cosecha(self):
-        detalle = DetalleCosecha.objects.filter(cosecha=self.id_cosecha)
+        detalle = DetalleCosecha.objects.get(cosecha=self.id_cosecha)
         return detalle
 
 
 class DetalleCosecha(models.Model):
-    cosecha = models.ForeignKey(Cosecha, on_delete=models.CASCADE,related_name='detalle_cosecha')
+    cosecha = models.ForeignKey(Cosecha,on_delete=models.CASCADE,related_name='detalle_cosechas')
     curacion_Cosecha = models.CharField(max_length=150)
     casos_de_cosecha = models.TextField()
     foto = models.ImageField(upload_to='imagenes_cosecha/')

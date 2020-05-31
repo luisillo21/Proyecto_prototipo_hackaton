@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,render_to_response
 import hashlib
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect, request
@@ -12,10 +12,19 @@ from .forms import *
 
 def buscar_formulario(request):
     context = {}
-    context['paises'] = Pais.objects.all().select_related('id_region')
-    context['regiones'] = Region.objects.all().select_related('id_provinvia')
-    context['cosecha'] = Cosecha.objects.all().select_related('')
-    
+    context['regiones'] = Region.objects.all()
+    context['cosechas'] = Cosecha.objects.all().values('id_cosecha','nombre_cosecha')
+    if request.method == 'POST':
+        region = request.POST.get('region')
+        cosecha = request.POST.get('cosecha')
+        if not cosecha:
+            context['cosechas_search'] = Cosecha.objects.filter()
+            return render(request, 'eat_for_thought/form_search.html', context)
+        else:
+            if Cosecha.objects.filter().exists():
+                context['cosecha'] = Cosecha.objects.filter().get(id_cosecha=cosecha)
+                return render(request, 'eat_for_thought/form_search.html', context)
+
     return render(request,'eat_for_thought/form_search.html',context)
 
 

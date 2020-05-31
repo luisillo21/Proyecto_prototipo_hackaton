@@ -17,9 +17,19 @@ from django.contrib import admin
 from django.urls import path,include
 from apps.usuario.views import *
 from apps.eat_for_thought.views import *
+from . import settings
+from django.contrib.staticfiles.urls import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.usuario.urls')),
     path('', include('apps.eat_for_thought.urls')),
 ]
+
+
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

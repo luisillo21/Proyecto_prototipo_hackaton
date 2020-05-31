@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'prototipo_hackaton1',
         'USER': 'postgres',
-        'PASSWORD': '05715',
+        'PASSWORD': 'sodaestereo',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -130,3 +130,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "staticfiles"),
     os.path.join(BASE_DIR, "static"),
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
