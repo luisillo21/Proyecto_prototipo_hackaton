@@ -1,1 +1,2 @@
-# Proyecto_prototipo_hackaton
+# HardvesTime
+The place where you can learn about plants
