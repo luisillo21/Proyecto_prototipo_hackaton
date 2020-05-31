@@ -30,22 +30,22 @@
 		<div class="card">
 			<div class="card-header">
                 <div class="text-center">
-                   <h3>Login</h3>
+                   <h3 class="text-light"> <strong> Login </strong> </h3>
+                   <img src="{% static 'images/logoPng.png' %}" width="200px" alt="">
                 </div>
-                <br>
 			</div>
 			<div class="card-body">
 				<form method="post" action="{% url 'index' %}">
                     {% csrf_token %}
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
+							<span class="input-group-text text-light"><i class="fas fa-user"></i></span>
 						</div>
 						<input type="text" name="usu" id="usu" class="form-control" placeholder="Usuario">
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
+							<span class="input-group-text text-light"><i class="fas fa-key"></i></span>
 						</div>
 						<input type="password" name="pass" id="pass" class="form-control" placeholder="Contraseña">
 					</div>
@@ -58,7 +58,7 @@
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					¿No tienes una cuenta?<a href="{% url 'crear_usuario' %}">Regístrate</a>
+					¿No tienes una cuenta? <a href="{% url 'crear_usuario' %}">Regístrate</a>
 				</div>
 			</div>
 		</div>
@@ -74,7 +74,7 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-	background-image:url("static/images/logo2.jpg");
+	background-image:url("static/images/2.jpeg");
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;

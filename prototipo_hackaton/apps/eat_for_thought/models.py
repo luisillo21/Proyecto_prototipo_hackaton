@@ -19,7 +19,7 @@ class Region(models.Model):
 class Pais(models.Model):
     id_pais = models.AutoField(primary_key=True)
     nombre_pais = models.CharField('Nombre de pais', max_length=50, blank=False, null=False)
-    id_region = models.ForeignKey(Region, on_delete=models.CASCADE)
+    id_region = models.ForeignKey(Region, on_delete=models.CASCADE,related_name='region_pais')
     def __str__(self):
         return self.nombre_pais
 

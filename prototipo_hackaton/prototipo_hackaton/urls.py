@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from apps.usuario.views import *
+from apps.eat_for_thought.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.usuario.urls')),
-
+    path('', include('apps.eat_for_thought.urls')),
 ]
