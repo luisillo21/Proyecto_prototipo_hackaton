@@ -10,14 +10,19 @@ from apps.usuario.forms import *
 from .forms import *
 
 
+def result_search(request):
+    context = {}
+    return render(request,'eat_for_thought/form_results.html',context)
+
+
 def buscar_formulario(request):
     context = {}
     context['regiones'] = Region.objects.all()
     context['cosechas'] = Cosecha.objects.all().values('id_cosecha','nombre_cosecha')
-    if request.method == 'POST':
-        region = request.POST.get('region')
+    if request.method  == 'POST':
+        #region = request.POST.get('region')
         cosecha = request.POST.get('cosecha')
-        if not cosecha:
+        if cosecha == 'Todos':
             context['cosechas_search'] = Cosecha.objects.filter()
             return render(request, 'eat_for_thought/form_search.html', context)
         else:
