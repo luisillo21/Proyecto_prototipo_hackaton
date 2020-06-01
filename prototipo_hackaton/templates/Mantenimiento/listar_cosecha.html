@@ -5,28 +5,26 @@
 {% endblock sidebar %}
 {% load crispy_forms_tags %}
 {% block contenido %}
-<header class="cuadro_titulo rounded bg-gradient-primary text-center"> <h4 class="title text-light"> Mantenimiento | General </h4></header>
+<header class="cuadro_titulo rounded bg-gradient-success text-center"> <h4 class="title text-light"> Mantenimiento | General </h4></header>
 <br/><br/>
-     <a href="{% url 'crear_cosecha' %}" class="btn bg-gradient-primary text-light"  id="registrar"><span class="glyphicon glyphicon-plus"></span>Agregar</a>
-<br/><br/>
-<br/><br/>
-<br/><br/>
+<a href="{% url 'crear_cosecha' %}" class="btn bg-gradient-success text-light"  id="registrar"><span class="glyphicon glyphicon-plus"></span>Agregar</a>
+
  <form action="/" method="POST">
     </form>
-<div class="card-body">
-  <div class="table-responsive">
-                <table class="table table-bordered"  width="100%" id="dataTable" cellspacing="0"data-page-length='5'>
-                  <thead class="bg-gradient-primary text-light">
-
-
+<div class="card shadow mb-4">
+        <div class="card-header py-3  text-center" style="background-color: #00AB27;">
+            <h6 class="m-0 font-weight-bold text-light"></h6>">
+                <table class="table table-bordered"  width="100%" bgcolor="White" id="dataTable" cellspacing="10"data-page-length='10'>
+                  <thead class="bg-gradient-success  text-light">
                     <tr class="text-center">
                                               <th>Tipo de cosecha</th>
                                               <th>Nombre de cosecha</th>
-                                                <th>descripcion</th>
+                                                <th>Descripcion</th>
                                                 <th>vitamina</th>
-                                                <th>temperatura</th>
-                                                <th>tiempo de riego</th>
-                                                <th>humedad de la tierra</th>
+                                                <th>Temperatura</th>
+                                                <th>Tiempo de riego</th>
+                                                <th>Humedad de la tierra</th>
+                                                <th>Opcion</th
                                             </tr>
                                           </thead>
                                           <tbody>
@@ -41,8 +39,10 @@
                                                 <td><strong>{{general.tiempo_de_riego}}</strong></td>
                                                 <td><strong>{{general.humedad_de_tierra}}</strong></td>
                                                 <td>
-                                                    <a href="{% url 'update_cosecha' general.id_cosecha  %}" class="btn btn-primary" title="Editar"><i class="fas fa-info-circle"></i></a>
-                                                    <a href="{% url 'eliminar_cosecha' general.id_cosecha  %}" class="btn btn-primary" title="eliminar"><i class="fas fa-info-circle"></i></a>
+                                                    <a href="{% url 'update_cosecha' general.id_cosecha  %}" class="btn btn-success" title="Editar"><i class=""></i></a>
+
+
+
                                               </td>
 
 

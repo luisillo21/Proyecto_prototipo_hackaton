@@ -21,16 +21,16 @@ class Cosecha_1(forms.ModelForm):
             'vitamina':'Vitamina',
             'temperatura':'Temperatura',
             'tiempo_de_riego':'Tiempo de riego',
-            'humedad_de_tierra':'humedad de tierra',
+            'humedad_de_tierra':'Humedad de tierra',
         }
 
         widgets = {
 
-            'tipo_cosecha': forms.TextInput(attrs={'class':'from-control',"placeholder": "Ingrese el tipo"}),
-            'nombre_cosecha': forms.TextInput(attrs={'class':'from-control',"placeholder": "Ingrese el nombre de la cosecha"}),
-            'descripcion': forms.TextInput(attrs={'class':'from-control',"placeholder": "Ingrese una descripcion"}),
-            'vitamina': forms.TextInput(attrs={'class': 'from-control', "placeholder": "Ingrese vitamina"}),
-            'temperatura': forms.TextInput(attrs={'class': 'from-control', "placeholder": "Ingrese temperatura"}),
-            'tiempo_de_riego': forms.TextInput(attrs={'class': 'from-control', "placeholder": "Ingrese tiempo de riego"}),
-            'humedad_de_tierra': forms.TextInput(attrs={'class': 'from-control', "placeholder": "Ingrese la humedad de la tierra"}),
+            'tipo_cosecha': forms.TextInput(attrs={'class':'from-control',"placeholder": "Fruta o Vegetales"}),
+            'nombre_cosecha': forms.TextInput(attrs={'class':'from-control',"placeholder": ""}),
+            'descripcion': forms.TextInput(attrs={'class':'from-control',"placeholder": ""}),
+            'vitamina': forms.TextInput(attrs={'class': 'from-control', "placeholder": ""}),
+            'temperatura': forms.TextInput(attrs={'class': 'from-control', "placeholder": ""}),
+            'tiempo_de_riego': forms.TextInput(attrs={'class': 'from-control', "placeholder": ""}),
+            'humedad_de_tierra': forms.TextInput(attrs={'class': 'from-control', "placeholder": ""}),
         }
