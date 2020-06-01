@@ -11,14 +11,23 @@ from .forms import *
 from .utils import link_callback
 from django.template.loader import get_template
 from xhtml2pdf import pisa
-
+import requests
 
 def result_search(request):
     context = {}
     if request.method == 'POST':
         context['data'] = Provincia.objects.get(id_provincia=request.POST.get('provincia'))
+        context['detalles_rec'] = Cosecha.objects.filter()
         return render(request,'eat_for_thought/form_results.html',context)
     return render(request,'eat_for_thought/form_results.html',context)
+
+def generate_request(params={}):
+    url = "https://power.larc.nasa.gov/downloads/POWER_Regional_Daily_20200105_20200307_61d639b3.json"
+    payload = {}
+    headers = {}
+    response = requests.request("GET", url, headers=headers, data = payload)
+    print(response.text.encode('utf8'))
+    return response.get('features')[0].get('geometri')
 
 
 def buscar_formulario(request):

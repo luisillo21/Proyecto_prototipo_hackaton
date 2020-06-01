@@ -65,10 +65,10 @@
                 <tbody>
                     {% for dr in detalles_rec %}
                     <tr class="text-center">
-                        <td scope="row">Data</td>
-                        <td scope="row">data</td>
+                        <td scope="row">{{dr.nombre_cosecha}}</td>
+                        <td scope="row">{{dr.detalle_cosecha.curacion_Cosecha}}</td>
                         <td scope="row">
-                          <a href="#" class="btn btn-success"> Ver mas información sobre <span style="color: #00AB27;"> {{dr.cosecha.nombre_cosecha}} </span>  </a>
+                          <a href="#" class="btn btn-success"> Ver mas información </a>
                         </td>
                     </tr>
                     {% endfor%}
@@ -83,14 +83,9 @@
     $(document).ready(function() {
 
        $.ajax({
-            url: "https://power.larc.nasa.gov/downloads/POWER_SinglePoint_Daily_20200103_20200531_01d47S_78d82W_bb8cff43.json",
-            type: 'POST',
-            headers:{
-                'Access-Control-Allow-Origin': '*',
-               },
-            beforeSend: function(request) {
-                request.setRequestHeader("Access-Control-Allow-Origin", '*');
-            },
+            url: "../generate_request/",
+            type: 'GET',
+            crossDomain : true,
             success: function(html){
               console.log(html);
             }
