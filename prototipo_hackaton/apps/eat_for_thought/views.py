@@ -8,16 +8,22 @@ from django.urls import reverse
 from .models import *
 from apps.usuario.forms import *
 from .forms import *
+from .utils import link_callback
+from django.template.loader import get_template
+from xhtml2pdf import pisa
 
 
 def result_search(request):
     context = {}
+    if request.method == 'POST':
+        context['data'] = Provincia.objects.get(id_provincia=request.POST.get('provincia'))
+        return render(request,'eat_for_thought/form_results.html',context)
     return render(request,'eat_for_thought/form_results.html',context)
 
 
 def buscar_formulario(request):
     context = {}
-    context['regiones'] = Region.objects.all()
+    context['provincias'] = Provincia.objects.all()
     context['cosechas'] = Cosecha.objects.all().values('id_cosecha','nombre_cosecha')
     if request.method  == 'POST':
         #region = request.POST.get('region')
@@ -80,3 +86,22 @@ class Updatecosecha (UpdateView):
     form_class = Cosecha_1
     success_url = reverse_lazy('listar_cosecha')
     context_object_name = 'F'
+
+
+#----------------------------Report section------------------
+def informacion_cosecha(request,id):
+    template_path = 'reportes/info_cosecha.html'
+    context = {}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    #response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+    # create a pdf
+    pisaStatus = pisa.CreatePDF(
+       html, dest=response, link_callback=link_callback)
+    # if error then show some funy view
+    if pisaStatus.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response

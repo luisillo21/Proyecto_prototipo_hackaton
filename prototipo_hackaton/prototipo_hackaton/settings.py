@@ -41,9 +41,13 @@ INSTALLED_APPS = [
     'crispy_forms',
     'apps.usuario',
     'apps.eat_for_thought',
+    'corsheaders',
+
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -51,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'prototipo_hackaton.urls'
@@ -130,6 +135,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "staticfiles"),
     os.path.join(BASE_DIR, "static"),
 ]
+
+
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

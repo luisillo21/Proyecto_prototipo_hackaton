@@ -1,5 +1,102 @@
 {% extends "base.html" %}
 
 {% block contenido %}
-  
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <h1> <strong> <span style="color: #00AB27;" > Resultados </span> <span style="color: #8B5A3C;" > climaticos </span> </strong> </h1>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-between">
+            <div class="col-4">
+                <a href="{% url 'informacion_cosecha' 1 %}" class="btn text-light" style="background-color: #00AB27;">
+                    <svg class="bi bi-file-spreadsheet" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z" />
+                        <path fill-rule="evenodd" d="M13 6H3V5h10v1zm0 3H3V8h10v1zm0 3H3v-1h10v1z" />
+                        <path fill-rule="evenodd" d="M5 14V6h1v8H5zm4 0V6h1v8H9z" />
+                    </svg>
+                    Imprimir informacion
+                </a>
+            </div>
+    </div>
+    <br>
+    <input type="hidden" name="detalle" value="{{data.nombre_provincia}}">
+  <div class="row  justify-content-center">
+        <div class="col-6">
+            <label class="h3"> <strong> <span style="color: #8B5A3C;">Provincia</span> <span style="color: #00AB27;">: {{ data.nombre_provincia }}</span></strong></label>
+        </div>
+        <div class="col-6" >
+
+        </div>
+  </div>
+<div class="row  justify-content-center">
+    <div class="col-6">
+        <label class="h3"> <strong> <span style="color: #8B5A3C;">Temperatura</span> <span style="color: #00AB27;">
+                    aproximada: </span> </strong> </label>
+    </div>
+    <div class="col-6">
+        <label class="h3"> <strong> <span style="color: #8B5A3C;">Precipitación  </strong> </label>
+    </div>
+
+    <div class="col-6">
+        <label class="h3"> <strong> <span style="color: #00AB27;">
+                    Precipitación: </span> </strong> </label>
+    </div>
+
+    <div class="col-6">
+        <label class="h3"> <strong> <span style="color: #8B5A3C;">Velocidad </span> del <span style="color: #00AB27;">
+                    viento:
+                </span> </strong> </label>
+    </div>
+</div>
+
+
+
+            <table id="dtBasicExample" class="table table-bordered">
+                <thead class="">
+                    <tr class="text-light" style="background-color: #00AB27;">
+                        <th scope="col">Cosecha</th>
+                        <th scope="col">Temperatura</th>
+                        <th scope="col">Mas información</th>
+                    </tr>
+                </thead>
+                {% if detalles_rec %}
+                <tbody>
+                    {% for dr in detalles_rec %}
+                    <tr class="text-center">
+                        <td scope="row">Data</td>
+                        <td scope="row">data</td>
+                        <td scope="row">
+                          <a href="#" class="btn btn-success"> Ver mas información sobre <span style="color: #00AB27;"> {{dr.cosecha.nombre_cosecha}} </span>  </a>
+                        </td>
+                    </tr>
+                    {% endfor%}
+                </tbody>
+                {% else %}
+                    <h2>No hay cosechas recomendable con la informacion mostrada</h2>
+                {% endif %}
+            </table>
+   
+   <script type="text/javascript">
+    var $ = jQuery.noConflict();
+    $(document).ready(function() {
+
+       $.ajax({
+            url: "https://power.larc.nasa.gov/downloads/POWER_SinglePoint_Daily_20200103_20200531_01d47S_78d82W_bb8cff43.json",
+            type: 'POST',
+            headers:{
+                'Access-Control-Allow-Origin': '*',
+               },
+            beforeSend: function(request) {
+                request.setRequestHeader("Access-Control-Allow-Origin", '*');
+            },
+            success: function(html){
+              console.log(html);
+            }
+    });
+   });
+
+   </script>
+
 {% endblock contenido %}

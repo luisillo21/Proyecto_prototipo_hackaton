@@ -4,6 +4,7 @@ from apps.usuario.models import *
 class Provincia(models.Model):
     id_provincia= models.AutoField(primary_key=True)
     nombre_provincia = models.CharField(max_length=20, blank=False, null=False)
+    coordenadas = models.CharField(max_length=20, blank=False, null=False)
     planta = models.CharField(max_length=20, blank=False, null=False)
 
 

@@ -7,20 +7,16 @@
             <h6 class="m-0 font-weight-bold text-light">FORMULARIO DE CONSULTA</h6>
         </div>
         <div class="card-body">
-           <form action=" {% url 'result_search' %} " method="POST">
+           <form id="formulario_busqueda" action="{% url 'result_search' %}" method="POST">
             {% csrf_token %}
             <div class="row">
 
                 <div class="col-7 py-2">
-                    <select name="region" class="form-control js-example-basic-single" id="region" required>
-                        <option value="" selected disabled>Seleccione una región</option>
-                        {% for r in regiones %}
-                            <option value="{{r.id_region}}">
-                                Región:{{ r.nombre_region }}
-                                Provincias de esta región: 
-                                {% for p in r.id_provinvia.all %}
-                                   &nbsp; {{p.nombre_provincia}}
-                                {% endfor %}
+                    <select name="provincia" class="form-control js-example-basic-single" id="provincia" required>
+                        <option value="" selected disabled>Seleccione una Provincia</option>
+                        {% for r in provincias %}
+                            <option value="{{r.id_provincia}}">
+                                Provincias:{{ r.nombre_provincia }}
                             </option>
                         {% endfor %}
                     </select>

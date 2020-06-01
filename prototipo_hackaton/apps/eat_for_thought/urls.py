@@ -16,5 +16,6 @@ urlpatterns = [
     path('listar_cosecha/', List_cosecha.as_view(), name='listar_cosecha'),
     path('update_cosecha/<int:pk>', Updatecosecha.as_view(), name='update_cosecha'),
     path('eliminar_cosecha/<int:pk>', Eliminar_cosecha.as_view(), name='eliminar_cosecha'),
-    path('result_search/', result_search, name='result_search')
+    path('result_search/', result_search, name='result_search'),
+    path('informacion_cosecha/<int:id>', informacion_cosecha, name='informacion_cosecha')
 ]

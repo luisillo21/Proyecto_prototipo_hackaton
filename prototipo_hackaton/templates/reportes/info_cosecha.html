@@ -1,0 +1,177 @@
+{% load static %}
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<html>
+
+<head>
+    <style>
+        .tdbreak {
+            word-break: break-all
+        }
+
+        @page {
+            size: A4;
+
+          
+
+            @frame imagen {
+                -pdf-frame-content: imagen;
+                width: 260pt;
+                top: 1pt;
+                left: 180pt;
+                height: 180pt;
+                /* -pdf-frame-border = 1;*/
+            }
+
+            @frame contenido_head {
+                -pdf-frame-content: content_head;
+                left: 390pt;
+                width: 200pt;
+                top: 30pt;
+                height: 50pt;
+                font-size: 14px;
+                /* -pdf-frame-border = 1;*/
+            }
+
+
+            @frame codigo {
+                -pdf-frame-content: content_codigo;
+                left: 495pt;
+                width: 95pt;
+                margin-left: 10pt;
+                top: 50pt;
+                height: 20pt;
+                font-size: 14px;
+                /*-pdf-frame-border = 1;*/
+            }
+
+
+            /* Contenido estilos */
+
+            @frame content_frame {
+                left: 5pt;
+                width: 580pt;
+                top: 120pt;
+                height: 500pt;
+                /*-pdf-frame-border = 1;*/
+            }
+
+            @frame tabla1 {
+                -pdf-frame-content: tabla_1;
+                left: 10pt;
+                width: 590pt;
+                top: 120pt;
+                height: 460pt;
+
+                /*-pdf-frame-border = 1;*/
+            }
+
+            @frame detalle_eventos {
+                -pdf-frame-content: detalle_eventos;
+                left: 5pt;
+                width: 550pt;
+                top: 690pt;
+                height: 100pt;
+                /*-pdf-frame-border = 1;*/
+            }
+
+            @frame standar {
+                -pdf-frame-content: standar;
+                left: 15pt;
+                width: 300pt;
+                top: 90pt;
+                height: 150pt;
+            }
+
+            /* Pie de  Pagina */
+
+            @frame footer_frame {
+                /* Another static Frame */
+                -pdf-frame-content: footer_content;
+                left: 10pt;
+                width: 580pt;
+                top: 790pt;
+                height: 30pt;
+                /*-pdf-frame-border = 1;*/
+            }
+
+            @frame contador {
+                /* Another static Frame */
+                -pdf-frame-content: contador;
+                left: 510pt;
+                width: 50pt;
+                top: 820pt;
+                height: 20pt;
+            }
+
+            @frame contenido_del_footer {
+                /* Another static Frame */
+                -pdf-frame-content: contenido_del_footer;
+                left: 10pt;
+                width: 500pt;
+                top: 810pt;
+                height: 50pt;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Content for Static Frame 'header_frame' -->
+    <div id="header_content">
+       
+    </div>
+
+<img src="static/images/logoPng.png" id="imagen" alt="">
+
+    <label style="font-size: 25px;"> Temperaturade la  costa:  </label>
+
+    <table class="table" style=" font-size 12px;">
+        <thead style="height: 30px;">
+            <tr style=" border:0.5px solid black;">
+                <td><center>Cosecha</center></td>
+                <td><center>Humedad</center></td>
+                <td><center>Temperatura</center></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in evento  %}
+
+            <tr style="border:0.5px solid black;">
+                <td class="tdbreak">
+                    <center>{{ forloop.counter }}</center>
+                </td>
+                <td class="tdbreak">
+                    <center>{{row.codigo_evento}}</center>
+                </td>
+                <td class="tdbreak">
+                    <center>{{row.nombre}}</center>
+                </td>
+            </tr>
+
+
+            {% endfor %}
+
+
+        </tbody>
+    </table>
+
+
+
+
+    {% block footer %}
+    <div id="footer_content">
+        <label
+            style="color: #00AB27">////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</label>
+        <br>
+        <div id="contador">
+            <label style="font-size: 13px">Pág <pdf:pagenumber> | <pdf:pagecount></label>
+        </div>
+        <div id="contenido_del_footer" style="font-size: 13px">
+        </div>
+    </div>
+    {% endblock footer %}
+    <!-- HTML Content -->
+</body>
+
+</html>
