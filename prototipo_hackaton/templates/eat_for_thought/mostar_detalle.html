@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block encabezado %}
+{% endblock encabezado %}
+{% block sidebar %}
+{% endblock sidebar %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+
+
+
+
+
+
+    <form method="POST" action="{% url 'mostrar_cosecha' F.cosecha  %}">
+<div class="card">
+    <div class="card-header py-3  text-center" style="background-color: #00AB27;">
+            <h3 class="m-0 font-weight-bold text-light"> <strong> Detalles </strong> </h3>
+    </div>
+  <div class="card-body">
+      <div class="text-center">
+      <h4 class="text-success"><strong> Tipo de cosecha</strong> </h4><input disabled="disabled" value="Vegetales">
+      <h4 class="text-success"><strong> Nombre de cosecha</strong> </h4><input disabled="disabled" value="pera">
+          <h4 class="text-success"><strong> Descripcion </strong></h4><textarea class="vLargeTextField" disabled="disabled">xdxdxdsdfsdfsefsjfsa sfnlksfdlsflsjfsjfposjdf sdfsdfsdfjsfs sdfsdfsdfsk f sdfnsdnfsajfsjfls sfdnlsfdlsnflksdnf lsnfdlsndflksnflsndflksnlfknslfhsoifhsnflksdnflkdsnflks</textarea>
+      <h4 class="text-success"><strong> Vitamina </strong></h4><input disabled="disabled" value="xd">
+      <h4 class="text-success"><strong> Temparatura </strong></h4><input disabled="disabled" value="xd">
+      <h4 class="text-success"> <strong>Tipo de riego</strong></h4><input disabled="disabled" value="Vegetales">
+      <h4 class="text-success"><strong> Humedad de tierra</strong></h4><input disabled="disabled" value="xd">
+            <h4 class="text-success"><strong> Curacion de cosecha</strong></h4><input disabled="disabled" value="xd">
+                  <h4 class="text-success"><strong> Casos de cosecha</strong></h4><input disabled="disabled" value="xdxdxd">
+          <h4 class="text-success"><strong> Foto</strong></h4><img src="imagenes_cosecha/images.jpeg" alt="..." class="img-thumbnail">
+          <h4 class="text-success"><strong> Video instructivo</strong></h4><a href="https://www.youtube.com/watch?v=VPPsqHi8z8I&amp;list=RDMM8ljjxs8ZOqU&amp;index=7">https://www.youtube.com/watch?v=VPPsqHi8z8I&amp;list=RDMM8ljjxs8ZOqU&amp;index=7</a>
+
+      </div>
+  </div>
+<div class="card-header">
+        <div class="text-center">
+            <a type="button" href="/form_search/" class="btn btn-success">Atras</a>
+        </div>
+    </div>
+</div>
+                </form>
+
+
+        </div>
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+
+{% endblock contenido %}
