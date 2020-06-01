@@ -43,6 +43,12 @@ class List_cosecha(ListView):
     model = Cosecha
     template_name = 'Mantenimiento/listar_cosecha.html'
 
+class MostrarDetalle(UpdateView):
+    model = Cosecha
+    form_class = Cosecha_1
+    template_name = 'eat_for_thought/mostar_detalle.html'
+    context_object_name = 'F'
+
 class CreateGeneral (CreateView):
     model = Cosecha
     template_name = 'Mantenimiento/agregar_cosecha.html'
