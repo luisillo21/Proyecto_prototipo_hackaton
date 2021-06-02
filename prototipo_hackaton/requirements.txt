@@ -59,7 +59,7 @@ shellescape==3.8.1
 six==1.13.0
 sqlparse==0.3.0
 traitlets==4.3.3
-urllib3==1.25.8
+urllib3==1.26.5
 views==0.3
 virtualenv==16.7.5
 voluptuous==0.11.7
